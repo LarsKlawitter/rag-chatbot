@@ -1,0 +1,16 @@
+# .gitignore
+venv/
+__pycache__/
+.env
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+miniconda3/
+venv/
+rag_tutorial/
+env/
+.venv/
+
