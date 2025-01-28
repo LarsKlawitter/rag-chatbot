@@ -5,6 +5,7 @@ from langchain_community.vectorstores import FAISS
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+from langchain_ollama.llms import OllamaLLM
 
 # Load the API key from env variables
 load_dotenv()
@@ -30,7 +31,8 @@ def create_rag_chain(chunks):
     retriever = doc_search.as_retriever(
         search_type="similarity", search_kwargs={"k": 5}
     )
-    llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0)
+    #llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0)
+    llm = OllamaLLM(model="llama3.1")
 
     rag_chain = (
         {"context": retriever | format_docs, "question": RunnablePassthrough()}
