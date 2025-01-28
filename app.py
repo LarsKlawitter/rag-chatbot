@@ -1,8 +1,8 @@
 import streamlit as st
 import os
 from dotenv import load_dotenv
-from document_processor import process_document, save_embeddings_for_repository
-from rag_chain import create_rag_chain
+from src.document_processor import process_document, save_embeddings_for_repository
+from src.rag_chain import create_rag_chain
 
 # Load environment variables
 load_dotenv()
